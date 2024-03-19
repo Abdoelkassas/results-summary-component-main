@@ -1,0 +1,313 @@
+/* Variables */
+:root {
+    --clr-primary-hsl-400: 252, 100%, 67%;
+    --clr-primary-hsl-500: 256, 72%, 46%;
+    --clr-secondary-hsl-400: 241, 81%, 54%;
+    --clr-secondary-hsl-500: 241, 72%, 46%;
+
+    --clr-neutral-hsl-100: 0, 0%, 100%;
+    --clr-neutral-hsl-200: 221, 100%, 96%;
+    --clr-neutral-hsl-300: 241, 100%, 89%;
+    --clr-neutral-hsl-700: 224, 30%, 27%;
+
+    --clr-neutral-100: hsl(var(--clr-neutral-hsl-100));
+    --clr-neutral-200: hsl(var(--clr-neutral-hsl-200));
+    --clr-neutral-300: hsl(var(--clr-neutral-hsl-300));
+    --clr-neutral-700: hsl(var(--clr-neutral-hsl-700));
+
+
+    --clr-primary-400: hsl(var(--clr-primary-hsl-400));
+    --clr-primary-500: hsla(var(--clr-primary-hsl-500));
+    --clr-secondary-400: hsl(var(--clr-secondary-hsl-400));
+
+    --gradient-primary: linear-gradient(var(--clr-primary-400),
+            var(--clr-secondary-400));
+
+    --gradient-to-transparent: linear-gradient(var(--clr-primary-500),
+            hsl(var(--clr-secondary-hsl-500), 0));
+
+    --clr-accent-1: 0, 100%, 67%;
+    --clr-accent-2: 39, 100%, 56%;
+    --clr-accent-3: 166, 100%, 37%;
+    --clr-accent-4: 234, 85%, 45%;
+
+    --font-family-default: "Hanken Grotesk", sans-serif;
+
+    --fw-regular: 500;
+    --fw-bold: 700;
+    --fw-black: 800;
+
+    --fs-400: 1.125rem;
+    --fs-500: 1.25rem;
+    --fs-600: 1.5rem;
+    --fs-700: 1.75rem;
+    --fs-800: 2rem;
+    --fs-900: 5rem;
+}
+
+
+/* Global Rules */
+
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+}
+
+body {
+
+    font-family: var(--font-family-default);
+    color: var(--clr-neutral-700);
+    font-size: var(--fs-400);
+}
+
+@media (min-width: 600px) {
+    body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* Main styling */
+
+.card {
+    display: grid;
+}
+
+/* Larger screen */
+@media (min-width: 600px) {
+    .card {
+        grid-template-columns: 1fr 1fr;
+        border-radius: 2rem;
+        -webkit-border-radius: 2rem;
+        -moz-border-radius: 2rem;
+        -ms-border-radius: 2rem;
+        -o-border-radius: 2rem;
+        box-shadow: 0 0 1rem hsl(var(--clr-neutral-hsl-700), .4);
+        overflow: hidden;
+        max-width: 45rem;
+        margin: 0 1rem;
+    }
+}
+
+/* Small screens */
+@media(max-width: 600px) {
+    .card {
+        display: block;
+        min-height: 100vh;
+        width: 100%;
+    }
+}
+
+.result,
+.summary {
+    height: 100%;
+    padding: 2.5rem;
+}
+
+.result,
+.summary {
+    display: grid;
+    gap: 1rem;
+}
+
+.title {
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-600);
+}
+
+
+/* Result Start */
+
+.result {
+    background: var(--gradient-primary);
+    text-align: center;
+    color: hsl(var(--clr-neutral-hsl-100), .8);
+    border-radius: 0 2rem 2rem 0;
+}
+
+@media(min-width: 600px) {
+    .result {
+        border-radius: 0 2rem 2rem 0;
+        -webkit-border-radius: 0 2rem 2rem 0;
+        -moz-border-radius: 0 2rem 2rem 0;
+        -ms-border-radius: 0 2rem 2rem 0;
+        -o-border-radius: 0 2rem 2rem 0;
+    }
+}
+
+@media(max-width: 600px) {
+    .result {
+        border-radius: 0 0 2rem 2rem;
+        -webkit-border-radius: 0 0 2rem 2rem;
+        -moz-border-radius: 0 0 2rem 2rem;
+        -ms-border-radius: 0 0 2rem 2rem;
+        -o-border-radius: 0 0 2rem 2rem;
+    }
+}
+
+
+
+.result .result-number {
+    background: var(--gradient-to-transparent);
+    width: 12rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
+    gap: 0;
+}
+
+.result-number h1 {
+    margin: 0;
+}
+
+.result-number-big {
+    color: hsl(var(--clr-neutral-hsl-100));
+    font-size: var(--fs-900);
+    font-weight: var(--fw-bold);
+}
+
+.greetings h2 {
+    font-size: var(--fs-700);
+    font-weight: var(--fw-bold);
+    color: var(--clr-neutral-100);
+    margin: 1rem 0;
+}
+
+.greetings p {
+    line-height: 1.2;
+}
+
+/* Result End */
+
+/* Summary Start */
+
+.summary .details {
+    display: grid;
+    gap: 1.5rem;
+    margin: .125rem;
+}
+
+.details .detail {
+    background: red;
+    border-radius: 15px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 1rem;
+}
+
+.detail .name {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    background-color: attr(data-color);
+}
+
+.detail .name span {
+    font-weight: var(--fw-bold);
+}
+
+.detail .detail-number span {
+    font-weight: var(--fw-bold);
+}
+
+.summary .reaction {
+    background: hsl(var(--clr-accent-1), .1);
+}
+
+.reaction .name {
+    color: hsl(var(--clr-accent-1));
+}
+
+.summary .memory {
+    background: hsl(var(--clr-accent-2), .1);
+}
+
+.memory .name {
+    color: hsl(var(--clr-accent-2));
+
+}
+
+.summary .verbal {
+    background: hsl(var(--clr-accent-3), .1);
+}
+
+.verbal .name {
+    color: hsl(var(--clr-accent-3));
+
+}
+
+.summary .visual {
+    background: hsl(var(--clr-accent-4), .1);
+}
+
+.visual .name {
+    color: hsl(var(--clr-accent-4), .8);
+
+}
+
+.continue-button {
+    background-color: var(--clr-neutral-700);
+    color: var(--clr-neutral-100);
+    padding: 1rem;
+    border: none;
+    border-radius: 100vw;
+    -webkit-border-radius: 100vw;
+    -moz-border-radius: 100vw;
+    -ms-border-radius: 100vw;
+    -o-border-radius: 100vw;
+    width: 100%;
+    cursor: pointer;
+}
+
+.continue-button:hover,
+.continue-button:focus-visible {
+    background: var(--gradient-primary);
+}
+
+/* Summary End */
+
+/* my editng */
+@keyframes showup {
+    from {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+}
+}
+
+.result-number-big{
+    animation: showup 1s;
+    -webkit-animation: showup 1s;
+}
